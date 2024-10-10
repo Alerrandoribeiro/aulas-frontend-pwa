@@ -1,14 +1,30 @@
 import './App.css'
-import Principal from './comum/componentes/Principal/Principal';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Rodape from './comum/componentes/Rodape/Rodape';
-import Cabecalho from './comum/componentes/cabecalho/Cabecalho';
+import Cabecalho from './comum/componentes/Cabecalho/Cabecalho';
+import PaginaInicial from './paginas/PaginaInicial/PaginaInicial';
+import ListaProdutos from './paginas/PaginaInicial/ListasProdutos/ListaProdutos';
+
+
+
+const router = createBrowserRouter([
+  {
+    path: '',
+    element: <PaginaInicial />,
+  },
+    {
+      path: 'lista-produtos',
+      element: <ListaProdutos/>,
+    }
+ ]);
+ 
 
 function App() {
 
   return (
     <>
     <Cabecalho/>
-    <Principal/>
+    <RouterProvider router={router} />
     <Rodape/>
   </>
   );
