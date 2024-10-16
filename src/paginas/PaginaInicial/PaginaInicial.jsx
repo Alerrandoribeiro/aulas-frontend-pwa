@@ -12,11 +12,14 @@ const PaginaInicial = () => {
         <BotaoCustomizado cor={'primaria'} onClick={() => navigate('/lista-produtos')}>
            Lista Produtos
         </BotaoCustomizado>
-        <BotaoCustomizado cor={'secundaria'} onClick={() => alert("Clicou no botão.")}>
-            Botão Secundário
+        <BotaoCustomizado cor={'secundaria'} onClick={() => navigate('/botao-incrementar')}>
+            Botão Incrementar
         </BotaoCustomizado>
-        <BotaoCustomizado onClick={() => alert("Clicou no botão.")}>
-            Botão Padrão
+        <BotaoCustomizado onClick={() => navigate('/botao-incrementar-decrementar')}>
+            Botão Incremetar e Decrementar
+        </BotaoCustomizado>
+        <BotaoCustomizado cor={'primaria'} onClick={() => navigate('/lista-tarefa')}>
+            Lista de Tarefas
         </BotaoCustomizado>
 
     </Principal>
