@@ -1,0 +1,17 @@
+input {
+    flex: 1; /* Faz o input ocupar todo o espaço disponível */
+    padding: 10px; /* Adiciona um pouco de espaço interno */
+    border: 1px solid #ccc; /* Estilo da borda */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+.icon {
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    margin-left: 50; /* Espaço entre o input e o ícone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remover-item_lista{
+    cursor: pointer;
+}

@@ -16,7 +16,7 @@ const BotaoIncrementar = () => {
         <br>
         </br>
         <BotaoCustomizado onClick={incrementar} cor={'primaria'}>
-        {numero}
+            {numero}
         </BotaoCustomizado>
     </Principal>
 
