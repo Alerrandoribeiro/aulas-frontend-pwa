@@ -7,6 +7,7 @@ import ListaProdutos from './paginas/PaginaInicial/ListasProdutos/ListaProdutos'
 import BotaoIncrementar from './paginas/PaginaInicial/BotaoIncrementar/BotaoIncrementar';
 import BotaoIncrementarDecrementar from './paginas/PaginaInicial/BotaoIncrementarDecrementar/BotaoIncrementarDecrementar';
 import PaginaListaTarefas from './paginas/PaginaInicial/PaginaListaTarefas/PaginaListaTarefas';
+import BotaoSomar from './paginas/PaginaInicial/MostrarSoma/MostrarSoma ';
 
 
 
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
   {
     path: 'lista-tarefa',
     element: <PaginaListaTarefas />,
-  }
+  },
 ]);
 
 

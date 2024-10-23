@@ -15,3 +15,8 @@ input {
 .remover-item_lista{
     cursor: pointer;
 }
+.pagina-lista-tarefas-mensagem-vazia{
+    text-align: center;
+    margin-top: 48px;
+}
+
