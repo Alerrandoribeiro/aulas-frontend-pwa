@@ -1,42 +1,37 @@
-import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Rodape from './comum/componentes/Rodape/Rodape';
-import Cabecalho from './comum/componentes/Cabecalho/Cabecalho';
-import PaginaInicial from './paginas/PaginaInicial/PaginaInicial';
-import ListaProdutos from './paginas/PaginaInicial/ListasProdutos/ListaProdutos';
-import BotaoIncrementar from './paginas/PaginaInicial/BotaoIncrementar/BotaoIncrementar';
-import BotaoIncrementarDecrementar from './paginas/PaginaInicial/BotaoIncrementarDecrementar/BotaoIncrementarDecrementar';
-import PaginaListaTarefas from './paginas/PaginaInicial/PaginaListaTarefas/PaginaListaTarefas';
-import BotaoSomar from './paginas/PaginaInicial/MostrarSoma/MostrarSoma ';
-
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import Rodape from "./comum/componentes/Rodape/Rodape";
+import BotaoIncrementar from "./paginas/PaginaInicial/BotaoIncrementar/BotaoIncrementar";
+import BotaoIncrementarDecrementar from "./paginas/PaginaInicial/BotaoIncrementarDecrementar/BotaoIncrementarDecrementar";
+import ListaProdutos from "./paginas/PaginaInicial/ListasProdutos/ListaProdutos";
+import PaginaInicial from "./paginas/PaginaInicial/PaginaInicial";
+import PaginaListaTarefas from "./paginas/PaginaInicial/PaginaListaTarefas/PaginaListaTarefas";
+import Cabecalho from "./comum/componentes/cabecalho/Cabecalho";
 
 const router = createBrowserRouter([
   {
-    path: '',
+    path: "",
     element: <PaginaInicial />,
   },
   {
-    path: 'lista-produtos',
+    path: "lista-produtos",
     element: <ListaProdutos />,
   },
   {
-    path: 'botao-incrementar',
+    path: "botao-incrementar",
     element: <BotaoIncrementar />,
   },
   {
-    path: 'botao-incrementar-decrementar',
+    path: "botao-incrementar-decrementar",
     element: <BotaoIncrementarDecrementar />,
   },
   {
-    path: 'lista-tarefa',
+    path: "lista-tarefa",
     element: <PaginaListaTarefas />,
   },
 ]);
 
-
 function App() {
-
   return (
     <>
       <Cabecalho />
