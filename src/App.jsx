@@ -7,6 +7,7 @@ import ListaProdutos from "./paginas/PaginaInicial/ListasProdutos/ListaProdutos"
 import PaginaInicial from "./paginas/PaginaInicial/PaginaInicial";
 import PaginaListaTarefas from "./paginas/PaginaInicial/PaginaListaTarefas/PaginaListaTarefas";
 import Cabecalho from "./comum/componentes/cabecalho/Cabecalho";
+import PaginaDesafioComponentes from "./PaginaDesafioComponentes/PaginaDesafioComponentes";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "lista-tarefa",
     element: <PaginaListaTarefas />,
+  },
+  {
+    path: "pagina-desafio-componentes",
+    element: <PaginaDesafioComponentes/>,
   },
 ]);
 
