@@ -8,6 +8,8 @@ import PaginaInicial from "./paginas/PaginaInicial/PaginaInicial";
 import PaginaListaTarefas from "./paginas/PaginaInicial/PaginaListaTarefas/PaginaListaTarefas";
 import Cabecalho from "./comum/componentes/cabecalho/Cabecalho";
 import PaginaDesafioComponentes from "./PaginaDesafioComponentes/PaginaDesafioComponentes";
+import PaginaListaClientes from "./paginas/PaginaInicial/PaginaListaClientes/PaginaListaClientes";
+import PaginaCadastroClientes from "./paginas/PaginaCadastroClientes/PaginaCadastroClientes";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: "pagina-desafio-componentes",
     element: <PaginaDesafioComponentes/>,
+  },
+  {
+    path: "lista-clientes",
+    element: <PaginaListaClientes/>,
+  },
+  {
+    path: "/lista-cadastro-clientes",
+    element: <PaginaCadastroClientes/>,
   },
 ]);
 

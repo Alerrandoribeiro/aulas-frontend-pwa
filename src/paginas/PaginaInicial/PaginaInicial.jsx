@@ -24,6 +24,13 @@ const PaginaInicial = () => {
         <BotaoCustomizado cor={'secundaria'} onClick={() => navigate('/pagina-desafio-componentes')}>
             Desafio componentes 
         </BotaoCustomizado>
+        <BotaoCustomizado cor={'primaria'} onClick={() => navigate('/lista-clientes')}>
+            Lista de Clientes
+        </BotaoCustomizado>
+    
+        <BotaoCustomizado cor={'secundaria'} onClick={() => navigate('/lista-cadastro-clientes')}>
+            Cadastro de Clientes
+        </BotaoCustomizado>
     
 
 
