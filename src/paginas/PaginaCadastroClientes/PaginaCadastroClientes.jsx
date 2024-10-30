@@ -2,7 +2,7 @@ import { useState } from "react";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
 import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaCadastroClientes.css";
-import ServicoCliente from "../../comum/componentes/servicos/servicoCliente";
+import ServicoCliente from "../../comum/componentes/servicos/ServicoCliente";
 import { useNavigate } from "react-router-dom";
 
 const PaginaCadastroClientes = () => {

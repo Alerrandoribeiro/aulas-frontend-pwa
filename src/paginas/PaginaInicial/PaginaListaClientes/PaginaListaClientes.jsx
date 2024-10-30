@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Principal from "../../../comum/componentes/Principal/Principal";
-import ServicoCliente from "../../../comum/componentes/servicos/servicoCliente";
+import ServicoCliente from "../../../comum/componentes/servicos/ServicoCliente";
 
 const PaginaListaClientes = () => {
 
