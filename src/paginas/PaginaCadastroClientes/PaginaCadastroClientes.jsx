@@ -2,13 +2,21 @@ import { useState } from "react";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
 import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaCadastroClientes.css";
+import ServicoCliente from "../../comum/componentes/servicos/servicoCliente";
+import { useNavigate } from "react-router-dom";
 
 const PaginaCadastroClientes = () => {
+
+  const navigate = useNavigate();
+
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [celular, setCelular] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [cpf, setCpf] = useState("");
+
+  const sevicoCliente = new ServicoCliente();
 
   const salvar = () => {
     const novoCliente = {
@@ -18,6 +26,11 @@ const PaginaCadastroClientes = () => {
       dataNascimento,
       cpf,
     };
+    console.log(novoCliente)
+
+    sevicoCliente.salvar(novoCliente)
+    navigate('/lista-clientes')
+
   };
 
   return (
