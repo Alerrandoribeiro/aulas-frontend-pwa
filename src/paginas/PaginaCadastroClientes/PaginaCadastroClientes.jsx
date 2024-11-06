@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
 import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaCadastroClientes.css";
 import ServicoCliente from "../../comum/componentes/servicos/ServicoCliente";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  MASCARA_CELULAR,
+  MASCARA_CPF,
+  formatarComMascara,
+} from "../../comum/componentes/utils/mascara";
+
+const instanciaSevicoCliente = new ServicoCliente();
 
 const PaginaCadastroClientes = () => {
-
   const navigate = useNavigate();
-
+  const params = useParams();
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -16,25 +22,50 @@ const PaginaCadastroClientes = () => {
   const [dataNascimento, setDataNascimento] = useState("");
   const [cpf, setCpf] = useState("");
 
-  const sevicoCliente = new ServicoCliente();
+  useEffect(() => {
+    if (params.id) {
+      const clienteEncontrado = instanciaSevicoCliente.buscarPorId(params.id);
+      if (clienteEncontrado) {
+        setNome(clienteEncontrado.nome);
+        setEmail(clienteEncontrado.email);
+        setCelular(clienteEncontrado.celular);
+        setDataNascimento(clienteEncontrado.dataNascimento);
+        setCpf(clienteEncontrado.cpf);
+      }
+    }
+  }, [params.id]);
 
   const salvar = () => {
-    const novoCliente = {
+    const cliente = {
+      id: params.id ? +params.id : Date.now(),
       nome,
       email,
       celular,
       dataNascimento,
       cpf,
     };
-    console.log(novoCliente)
 
-    sevicoCliente.salvar(novoCliente)
-    navigate('/lista-clientes')
+    if (params.id) {
+      instanciaSevicoCliente.editarCliente(cliente);
+    } else {
+      instanciaSevicoCliente.cadastrarCliente(cliente);
+    }
 
+    navigate("/lista-clientes");
   };
 
   return (
-    <Principal titulo={"Novo de Cliente"} voltarPara={"/lista-clientes"}>
+    <Principal
+      titulo={params.id ? "Editar de Cliente" : "Novo Cliente"}
+      voltarPara={"/lista-clientes"}
+    >
+      {params.id && (
+        <div className="campo">
+          <label>id</label>
+          <input type="text" value={params.id} disabled></input>
+        </div>
+      )}
+
       <div className="campo">
         <label>Nome</label>
         <input
@@ -66,7 +97,7 @@ const PaginaCadastroClientes = () => {
           placeholder="Informe seu número de telefone"
           value={celular}
           onChange={(e) => {
-            setCelular(e.target.value);
+            setCelular(formatarComMascara(e.target.value, MASCARA_CELULAR));
           }}
         ></input>
       </div>
@@ -89,9 +120,9 @@ const PaginaCadastroClientes = () => {
           type="tel"
           placeholder="Informe seu cpf"
           value={cpf}
-          onChange={(e) => {
-            setCpf(e.target.value);
-          }}
+          onChange={(e) =>
+            setCpf(formatarComMascara(e.target.value, MASCARA_CPF))
+          }
         ></input>
       </div>
 
