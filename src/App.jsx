@@ -11,38 +11,58 @@ import PaginaDesafioComponentes from "./PaginaDesafioComponentes/PaginaDesafioCo
 import PaginaListaClientes from "./paginas/PaginaInicial/PaginaListaClientes/PaginaListaClientes";
 import PaginaCadastroClientes from "./paginas/PaginaCadastroClientes/PaginaCadastroClientes";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import PaginaNovoUsuario from "./paginas/PaginaNovoUsuario/PaginaNovoUsuario";
+import PaginaLogin from "./paginas/PaginaLogin/PaginaLogin";
+import VerificarAutenticacao from "./comum/componentes/VerificarAutenticacao/VerificarAutenticacao";
+
 const router = createBrowserRouter([
   {
+    path: "login",
+    element: <PaginaLogin />,
+  },
+  {
+    path: "novo-usuario",
+    element: <PaginaNovoUsuario />,
+  },
+  {
     path: "",
-    element: <PaginaInicial />,
-  },
-  {
-    path: "lista-produtos",
-    element: <ListaProdutos />,
-  },
-  {
-    path: "botao-incrementar",
-    element: <BotaoIncrementar />,
-  },
-  {
-    path: "botao-incrementar-decrementar",
-    element: <BotaoIncrementarDecrementar />,
-  },
-  {
-    path: "lista-tarefa",
-    element: <PaginaListaTarefas />,
-  },
-  {
-    path: "pagina-desafio-componentes",
-    element: <PaginaDesafioComponentes/>,
-  },
-  {
-    path: "lista-clientes",
-    element: <PaginaListaClientes/>,
-  },
-  {
-    path: "/lista-cadastro-clientes/:id?",
-    element: <PaginaCadastroClientes/>,
+    element: <VerificarAutenticacao />,
+    children: [
+      {
+        path: "",
+        element: <PaginaInicial />,
+      },
+      {
+        path: "lista-produtos",
+        element: <ListaProdutos />,
+      },
+      {
+        path: "botao-incrementar",
+        element: <BotaoIncrementar />,
+      },
+      {
+        path: "botao-incrementar-decrementar",
+        element: <BotaoIncrementarDecrementar />,
+      },
+      {
+        path: "lista-tarefa",
+        element: <PaginaListaTarefas />,
+      },
+      {
+        path: "pagina-desafio-componentes",
+        element: <PaginaDesafioComponentes />,
+      },
+      {
+        path: "lista-clientes",
+        element: <PaginaListaClientes />,
+      },
+      {
+        path: "/lista-cadastro-clientes/:id?",
+        element: <PaginaCadastroClientes />,
+      },
+    ],
   },
 ]);
 
@@ -52,6 +72,7 @@ function App() {
       <Cabecalho />
       <RouterProvider router={router} />
       <Rodape />
+      <ToastContainer />
     </>
   );
 }

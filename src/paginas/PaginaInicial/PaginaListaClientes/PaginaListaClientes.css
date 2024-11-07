@@ -8,3 +8,8 @@
     
 
 }
+
+.pagina-lista-clientes_item-cliente-acoes{
+    display: flex;
+    gap: 16px;
+}

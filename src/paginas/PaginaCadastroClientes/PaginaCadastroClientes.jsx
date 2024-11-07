@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
 import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaCadastroClientes.css";
-import ServicoCliente from "../../comum/componentes/servicos/ServicoCliente";
+
 import { useNavigate, useParams } from "react-router-dom";
 import {
   MASCARA_CELULAR,
   MASCARA_CPF,
   formatarComMascara,
 } from "../../comum/componentes/utils/mascara";
+import ServicoCliente from "../../comum/componentes/servicos/servicoCliente";
+
+import { toast } from "react-toastify";
 
 const instanciaSevicoCliente = new ServicoCliente();
 
@@ -36,6 +39,11 @@ const PaginaCadastroClientes = () => {
   }, [params.id]);
 
   const salvar = () => {
+
+    if(!nome || email){
+    toast('Preencha todos os campos obrigatórios.')
+    }
+
     const cliente = {
       id: params.id ? +params.id : Date.now(),
       nome,
@@ -53,6 +61,8 @@ const PaginaCadastroClientes = () => {
 
     navigate("/lista-clientes");
   };
+
+  
 
   return (
     <Principal
