@@ -9,9 +9,10 @@ import {
   MASCARA_CPF,
   formatarComMascara,
 } from "../../comum/componentes/utils/mascara";
-import ServicoCliente from "../../comum/componentes/servicos/servicoCliente";
+
 
 import { toast } from "react-toastify";
+import ServicoCliente from "../../comum/componentes/servicos/servicoCliente";
 
 const instanciaSevicoCliente = new ServicoCliente();
 
