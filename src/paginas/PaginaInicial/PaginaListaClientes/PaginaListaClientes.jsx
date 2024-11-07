@@ -17,10 +17,12 @@ const PaginaListaClientes = () => {
     navigate(`/lista-cadastro-clientes/${idCliente}`);
   };
 
-  const excluir = (idCliente) =>{
-    if(confirm('Tem certeza!')){
-      instanciaServicoCliente.excluirCliente(idCliente)
-    };
+  const excluir = (idCliente) => {
+    if (confirm("Tem certeza!")) {
+    
+    const listaAtualizada =  instanciaServicoCliente.excluirCliente(idCliente);
+      setlistaClientes(listaAtualizada);
+    }
   };
 
   useEffect(() => {
@@ -36,19 +38,21 @@ const PaginaListaClientes = () => {
         return (
           <div key={cliente.id} className="pagina-lista-clientes_item-cliente">
             {cliente.nome}
-             <div><FaFilePen
-              size={24}
-              color="green"
-              onClick={() => {
-                navegarEdicao(cliente.id);
-              }}
-            />
-            <FaTrash className="pagina-lista-clientes_item-cliente-acoes"
-            size={24}
-            color="red"
-            onClick={() => excluir(cliente.id)}
-            />
-            </div> 
+            <div>
+              <FaFilePen
+                size={24}
+                color="green"
+                onClick={() => {
+                  navegarEdicao(cliente.id);
+                }}
+              />
+              <FaTrash
+                className="pagina-lista-clientes_item-cliente-acoes"
+                size={24}
+                color="red"
+                onClick={() => excluir(cliente.id)}
+              />
+            </div>
           </div>
         );
       })}

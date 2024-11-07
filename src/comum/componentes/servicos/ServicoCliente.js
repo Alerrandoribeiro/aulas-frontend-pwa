@@ -47,6 +47,7 @@ class ServicoCliente {
       "lista-clientes",
       JSON.stringify(listaAtualizada)
     );
+    return listaAtualizada;
   }
 }
 

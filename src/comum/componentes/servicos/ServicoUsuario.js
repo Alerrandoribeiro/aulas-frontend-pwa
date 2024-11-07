@@ -12,7 +12,10 @@ class ServicoUsuario {
   cadastrarUsuario(usuario) {
     const usuariosDoLocalStorage = this.listar();
     usuariosDoLocalStorage.push(usuario);
-    localStorage.setItem('lista-usuarios', JSON.stringify(usuariosDoLocalStorage));
+    localStorage.setItem(
+      "lista-usuarios",
+      JSON.stringify(usuariosDoLocalStorage)
+    );
   }
 }
 

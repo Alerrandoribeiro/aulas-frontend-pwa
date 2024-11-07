@@ -39,9 +39,8 @@ const PaginaCadastroClientes = () => {
   }, [params.id]);
 
   const salvar = () => {
-
-    if(!nome || email){
-    toast('Preencha todos os campos obrigatórios.')
+    if (!nome || !email) {
+      toast.error("Preencha todos os campos obrigatórios.");
     }
 
     const cliente = {
@@ -61,8 +60,6 @@ const PaginaCadastroClientes = () => {
 
     navigate("/lista-clientes");
   };
-
-  
 
   return (
     <Principal
